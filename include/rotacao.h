@@ -10,7 +10,7 @@ struct Rotacao
     unsigned int rotacao;
     //inicializa o sensor de rotação
     void begin();
-    //faz o cálculo da rotação
+    //faz o cálculo da rotação a cada 1 segundo
     void loop();
 };
 
