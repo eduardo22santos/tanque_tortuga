@@ -2,7 +2,7 @@
 #define CORRENTE_H
 #include <Arduino.h>
 
-#define pinCorrente 10
+#define pinCorrente 14
 
 struct Corrente
 {

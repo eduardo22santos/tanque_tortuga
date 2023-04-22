@@ -2,7 +2,7 @@
 #define ROTACAO_H
 #include <Arduino.h>
 
-#define pinRotacao 2
+#define pinRotacao 12
 
 struct Rotacao
 {

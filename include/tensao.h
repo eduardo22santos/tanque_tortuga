@@ -2,7 +2,7 @@
 #define TENSAO_H
 #include <Arduino.h>
 
-#define A0 0
+#define A0 13
 
 struct Tensao
 {
