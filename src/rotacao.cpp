@@ -1,7 +1,7 @@
 #include <rotacao.h>
 
 unsigned long rotacaoTime = 0;
-unsigned int numeroDePulsos;
+unsigned int numeroDePulsos = 0;
 
 void Rotacao::begin()
 {
