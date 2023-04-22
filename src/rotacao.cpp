@@ -6,7 +6,7 @@ unsigned int numeroDePulsos;
 void Rotacao::begin()
 {
     pinMode(pinRotacao,INPUT);
-    attachInterrupt(digitalPinToInterrupt(2),callBack, RISING);
+    attachInterrupt(digitalPinToInterrupt(pinRotacao),callBack, RISING);
 }
 
 void Rotacao::loop()
