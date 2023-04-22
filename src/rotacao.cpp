@@ -1,4 +1,25 @@
 #include <rotacao.h>
 
-int contador = 0;
+unsigned long rotacaoTime = 0;
+unsigned int numeroDePulsos;
 
+void Rotacao::begin()
+{
+    pinMode(pinRotacao,INPUT);
+    attachInterrupt(digitalPinToInterrupt(2),callBack, RISING);
+}
+
+void Rotacao::loop()
+{
+    if ((millis() - rotacaoTime)>= 1000)
+    {
+        rotacao = numeroDePulsos * 60;
+        numeroDePulsos = 0;
+        rotacaoTime = millis();
+    }
+}
+
+void callBack()
+{
+    numeroDePulsos++;
+}
