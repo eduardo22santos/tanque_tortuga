@@ -11,7 +11,12 @@ unsigned long tensaoTime = 0;
 unsigned long correnteTime = 0;
 unsigned long cargaTime = 0;
 
-
+/**********************************************************
+ * Objetos de cada sensor instalado. Verificar as informações
+ * nos arquivos header na pasta include e nos arquivos cpp
+ * nas pasta src.
+ * ********************************************************
+ */
 Tensao sensorTensao;
 Rotacao sensorRotacao;
 Corrente sensorCorrente;

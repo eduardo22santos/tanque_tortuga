@@ -12,7 +12,9 @@ struct Tensao
     float R1 = 32000.0;            // valor do resistor 1 em ohms
     float R2 = 7000.0;             // valor do resistor 2 em ohms
     
-    void begin(); // Inicializa o sensor de tensão
-    void read(); // faz a leitura do sensor
+    // Inicializa o sensor de tensão
+    void begin(); 
+    // faz a leitura do sensor
+    void read();
 };
 #endif // TENSAO_H
