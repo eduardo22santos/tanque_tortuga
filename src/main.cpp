@@ -1,20 +1,48 @@
 #include <Arduino.h>
+#include <tensao.h>
+#include <rotacao.h>
+#include <corrente.h>
+
+/**********************************************************
+ * variáveis de intervalo para gerenciar o tempo no super loop
+ * ********************************************************
+ */
+unsigned long tensaoTime = 0;
+unsigned long correnteTime = 0;
+unsigned long cargaTime = 0;
+
+
+Tensao sensorTensao;
+Rotacao sensorRotacao;
+Corrente sensorCorrente;
 
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  pinMode(2, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(2), modo, RISING);
+	Serial.begin(9600);
+	sensorTensao.begin();
+	sensorRotacao.begin();
+	sensorCorrente.begin();
 }
 
 void loop() {
-  
-  Serial.println(contador*60);
-  contador = 0;
-  delay(1000);
-}
+	unsigned long currentTime = millis();
 
-void modo()
-{
-  contador++;
+	if((currentTime - tensaoTime) >= 1000)
+	{
+		sensorTensao.read();
+		tensaoTime = currentTime;
+	}
+
+	if ((currentTime - correnteTime) >= 1000 )
+	{
+		sensorCorrente.read();
+		correnteTime = currentTime;
+	}
+	
+	if ((currentTime - cargaTime) >= 1000)
+	{
+		/* code */
+		cargaTime = currentTime;
+	}
+
+	sensorRotacao.loop();
 }
